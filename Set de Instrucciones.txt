@@ -1,4 +1,4 @@
-oad a 20
+load a 20
 load b 10
 load c 5
 load d 5
