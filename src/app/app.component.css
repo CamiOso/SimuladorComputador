@@ -5,12 +5,14 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
+  background-color: #FFF3E0;
+
 }
 
 .container_body_principal {
-  width: 90%; /* Ancho del cuadro en porcentaje o en px según tu preferencia */
-  margin: 20px auto; /* Centrar el cuadro y agregar margen superior e inferior */
-  border: 2px solid #000; /* Añadir un borde alrededor del cuadro */
+  width: 90%;
+  margin: 20px auto;
+  border: 2px solid #000;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -75,7 +77,7 @@ body {
 .MAR,
 .container__body__principal__center__MBR,
 .container__body__principal__center__IR {
-  height: 15%;
+  height: 12%;
   width: 100%;
   border: solid 1px black;
   padding: 20px;
@@ -84,6 +86,8 @@ body {
   justify-content: center;
   align-items: center;
   background: #D9D9D9;
+  margin-top: 10px;
+  margin-bottom: 10px
 }
 
 .container__body__principal__buses {
@@ -136,7 +140,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Agregado para posicionar absolutamente el pseudoelemento */
+  position: relative;
 }
 
 .container__body__principal__center__ALU::before {
