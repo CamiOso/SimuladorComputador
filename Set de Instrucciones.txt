@@ -1,0 +1,19 @@
+oad a 20
+load b 10
+load c 5
+load d 5
+add a b e
+sub a b f
+mul c d b
+div a d a
+inc c
+sub c d c
+cmp a b g
+out g
+not a
+move a b
+load h 0
+or c h h
+and c h g
+halt
+load a 45
