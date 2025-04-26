@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.component.css">
+</head>
+
+<body>
+  <div class="container_body_principal">
+
+    <div class="container-carga-instrucciones">
+      <mat-form-field class="container__body__principal__input">
+        <mat-label>Comandos de la <br>simulación</mat-label>
+        <textarea matInput [(ngModel)]="instruccionesIntroducidas"></textarea>
+      </mat-form-field>
+      <div>
+        <button class="header__button" mat-raised-button color="primary" (click)="cargarYEjecutarInstrucciones()" [disabled]="!habilitarBtnEjecutar"><mat-icon>play_arrow</mat-icon>Iniciar</button>
+      </div>
+    </div>
+
+    <div class="container-componentes-principales-CPU">
+      <div class="container__body__principal__center__UC" [ngClass]="{'elemento__procesador__activo': unidadControlEstaActiva}">
+        Unidad de control
+      </div>
+      <div class="container__body__principal__center__ALU" [ngClass]="{'elemento__procesador__activo': aluEstaActiva}">
+        <div class="container__span__alu">
+          <div>
+            <span>{{ALU.operando1}}</span> ***** <span>{{ALU.operando2}}</span>
+          </div>
+             ALU
+            <br>
+              {{ALU.operacionAEjecutar}}
+        </div>
+      </div>
+      <div class="container__body__principal__center__AG" [ngClass]="{'elemento__procesador__activo': almacenGeneralEstaActivo}">
+        <div>
+            Almacén general
+            <br><br><br>
+          <div>
+            Ax: {{almacenGeneral.A}} - Bx: {{almacenGeneral.B}} <br>
+            Cx: {{almacenGeneral.C}} - Dx: {{almacenGeneral.D}} <br>
+            Ex: {{almacenGeneral.E}} - Fx: {{almacenGeneral.F}} <br>
+            Gx: {{almacenGeneral.G}} - Hx: {{almacenGeneral.H}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-componentes-secundarios-CPU">
+      <div class="PC" [ngClass]="{'elemento__procesador__activo': pcEstaActivo}">
+        PC
+        <br>
+        {{PC+1}}
+      </div>
+      <div class="MAR" [ngClass]="{'elemento__procesador__activo': marEstaActivo}">
+        MAR
+        <br>
+        {{MAR+1}}
+      </div>
+      <div class="container__body__principal__center__MBR" [ngClass]="{'elemento__procesador__activo': mbrEstaActivo}">
+        MBR
+        <br>
+        {{MBR}}
+      </div>
+      <div class="container__body__principal__center__IR" [ngClass]="{'elemento__procesador__activo': irEstaActivo}">
+        IR
+        <br>
+        {{IR}}
+      </div>
+    </div>
+
+    <div class="container-buses-principales">
+      <div class="buses__container">
+        <div class="directions" [ngClass]="{'elemento__procesador__activo': busDireccionesEstaActivo}">Bus de direcciones</div>
+      </div>
+      <div class="buses__container">
+        <div class="data" [ngClass]="{'elemento__procesador__activo': busDatosEstaActivo}">Bus de datos</div>
+      </div>
+      <div class="buses__container">
+        <div class="control" [ngClass]="{'elemento__procesador__activo': busControlEstaActivo}">Bus de control</div>
+      </div>
+    </div>
+
+    <div class="container-componentes-finales">
+      <mat-card class="container__body__principal__card" [ngClass]="{'elemento__procesador__activo': memoriaEstaActiva}">
+        <mat-card-title>Memoria principal</mat-card-title>
+        <mat-card-content>
+          <div *ngFor="let instruccion of memoria.celdas; index as index">
+            {{index+1}} - {{instruccion}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="container__output">
+        <mat-card-title>
+          OUTPUT
+        </mat-card-title>
+      </mat-card>
+    </div>
+
+  </div>
+</body>
+
+</html>
